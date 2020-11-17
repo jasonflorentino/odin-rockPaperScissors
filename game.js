@@ -34,6 +34,31 @@ function playRound(playerSelection, computerSelection) {
 
 };
 
-const computerSelection = computerPlay();
-const playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
-console.log(playRound(playerSelection, computerSelection));
+function clicked() {
+  
+}
+
+function rockClick() {
+  console.log("Rock");
+}
+
+function paperClick() {
+  console.log("Paper");
+}
+
+function scissorsClick() {
+  console.log("Scissors");
+}
+
+const rock = document.getElementById("rock");
+const paper = document.getElementById("paper");
+const scissors = document.getElementById("scissors");
+
+rock.addEventListener("click", rockClick);
+paper.addEventListener("click", paperClick);
+scissors.addEventListener("click", scissorsClick);
+
+
+// const computerSelection = computerPlay();
+// const playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
+// console.log(playRound(playerSelection, computerSelection));
