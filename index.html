@@ -4,24 +4,36 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="styles.css"/>
         <title>Rock, Paper, Scissors!</title>
+        <!-- Rock: &#129356; 
+        Paper: &#128478; 
+        Scissors: ✂️&#xFE0E; -->
     </head>
     <body>
         <main>
-						<h1>Rock, Paper, Scissors!</h1>
-						<h2>You vs. The Computer</h2>
+            <h1>Rock, Paper, Scissors!</h1>
+            <h2>You vs. The Computer</h2>
             <div id="choices">
                 <div id="rock" class="click_me">Rock</div>
                 <div id="paper" class="click_me">Paper</div>
                 <div id="scissors" class="click_me">Scissors</div>
-						</div>
-						<div id="winner">
-						</div>
-						<div id="result">
-							Choose your weapon!
-						</div>
-						<div id="stats">
-						</div>
-				</main>
+            </div>
+            <div id="winner">
+            </div>
+            <div id="result">
+                Choose your weapon!
+            </div>
+            <div id="stats">
+                <div class="stat-item">
+                    You: <div id="playerWins">0</div>
+                </div>
+                <div class="stat-item">
+                    Computer: <div id="compWins">0</div>
+                </div>
+                <div class="stat-item">
+                    Ties: <div id="tieCount">0</div>
+                </div>
+            </div>
+        </main>
     </body>
     <script src="game.js"></script>
 </html>

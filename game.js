@@ -32,45 +32,38 @@ function playRound(playerSelection, computerSelection) {
 
 };
 
-// function clicked() {
-
-// }
-
-// function rockClick() {
-//   console.log("Rock");
-// }
-
-// function paperClick() {
-//   console.log("Paper");
-// }
-
-// function scissorsClick() {
-//   console.log("Scissors");
-// }
-
-// const rock = document.getElementById("rock");
-// const paper = document.getElementById("paper");
-// const scissors = document.getElementById("scissors");
-
-// rock.addEventListener("click", rockClick);
-// paper.addEventListener("click", paperClick);
-// scissors.addEventListener("click", scissorsClick);
-
 function clicked(e) {
   const playerChoice = e.srcElement.textContent;
   const compChoice = computerChoice();
   const winMsg = playRound(playerChoice, compChoice);
 
   winner.textContent = winMsg;
+  updateScore(winMsg);
   result.textContent = `You chose ${playerChoice}. Computer chose ${compChoice}.`;
-}
+};
+
+function updateScore(winMsg) {
+  if(winMsg == "It's a tie!") {
+    tieScore += 1;
+    tieCounter.textContent = tieScore.toString();
+  } else if(winMsg == "You Win!") {
+    playerScore += 1;
+    playerCounter.textContent = playerScore.toString();
+  } else {
+    computerScore += 1;
+    computerCounter.textContent = computerScore.toString();
+  }
+};
 
 const winner = document.getElementById("winner");
 const result = document.getElementById("result");
 const choices = Array.from(document.querySelectorAll('.click_me'));
+
 choices.forEach(choice => choice.addEventListener("click", clicked));
 
-
-// const computerSelection = computerPlay();
-// const playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
-// console.log(playRound(playerSelection, computerSelection));
+let playerScore = 0;
+let computerScore = 0;
+let tieScore = 0;
+const playerCounter = document.getElementById("playerWins");
+const computerCounter = document.getElementById("compWins");
+const tieCounter = document.getElementById("tieCount");

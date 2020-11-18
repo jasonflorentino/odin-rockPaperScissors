@@ -46,3 +46,9 @@ h1, h2 {
 .click_me:hover {
   background-color: blue;
 }
+
+#stats, .stat-item {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+}
