@@ -1,37 +1,6 @@
 // game.js
 // Main rock paper scissors game functions
 
-function computerChoice() {
-  let answers = ["Rock", "Paper", "Scissors"];
-    return answers[Math.floor(Math.random()*answers.length)];
-};
-
-function playRound(playerSelection, computerSelection) {
-
-  if(playerSelection == computerSelection) {
-    return "It's a tie!";
-  }
-
-  if(playerSelection == "Rock" && computerSelection == "Paper") {
-    return "You Lose!";
-  } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
-    return "You Win!";
-  }
-
-  if(playerSelection == "Paper" && computerSelection == "Rock") {
-    return "You Win!";
-  } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
-    return "You Lose!";
-  }
-
-  if(playerSelection == "Scissors" && computerSelection == "Rock") {
-    return "You Lose!";
-  } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-    return "You Win!";
-  }
-
-};
-
 function clicked(e) {
   const playerChoice = e.srcElement.textContent;
   const compChoice = computerChoice();
@@ -40,6 +9,32 @@ function clicked(e) {
   winner.textContent = winMsg;
   updateScore(winMsg);
   result.textContent = `You chose ${playerChoice}. Computer chose ${compChoice}.`;
+};
+
+function computerChoice() {
+  let answers = ["Rock", "Paper", "Scissors"];
+    return answers[Math.floor(Math.random()*answers.length)];
+};
+
+function playRound(playerSelection, computerSelection) {
+  if(playerSelection == computerSelection) {
+    return "It's a tie!";
+  }
+  if(playerSelection == "Rock" && computerSelection == "Paper") {
+    return "You Lose!";
+  } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
+    return "You Win!";
+  }
+  if(playerSelection == "Paper" && computerSelection == "Rock") {
+    return "You Win!";
+  } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+    return "You Lose!";
+  }
+  if(playerSelection == "Scissors" && computerSelection == "Rock") {
+    return "You Lose!";
+  } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+    return "You Win!";
+  }
 };
 
 function updateScore(winMsg) {
@@ -67,3 +62,14 @@ let tieScore = 0;
 const playerCounter = document.getElementById("playerWins");
 const computerCounter = document.getElementById("compWins");
 const tieCounter = document.getElementById("tieCount");
+
+document.getElementById("reset").addEventListener("click", function() {
+  playerScore = 0;
+  computerScore = 0;
+  tieScore = 0;
+  tieCounter.textContent = tieScore.toString();
+  playerCounter.textContent = playerScore.toString();
+  computerCounter.textContent = computerScore.toString();
+  document.getElementById("winner").textContent = undefined;
+  document.getElementById("result").textContent = "Choose your weapon!";
+})
