@@ -2,26 +2,25 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width"/>
         <link rel="stylesheet" href="styles.css"/>
         <title>Rock, Paper, Scissors!</title>
-        <!-- Rock: &#129356; 
-        Paper: &#128478; 
+        <!-- Curling Rock: &#129356;
+        Mayoi: &#128511;
+        Flat Paper: &#128196;
+        Rolled Paper: &#128478; 
         Scissors: ✂️&#xFE0E; -->
     </head>
     <body>
-        <main>
-            <h1>Rock, Paper, Scissors!</h1>
+        <div id="controller">
+            <h1>&#128511;, &#128196;, ✂️&#xFE0E;!</h1>
             <h2>You vs. The Computer</h2>
             <div id="choices">
                 <div id="rock" class="click_me">Rock</div>
                 <div id="paper" class="click_me">Paper</div>
                 <div id="scissors" class="click_me">Scissors</div>
             </div>
-            <div id="winner">
-            </div>
-            <div id="result">
-                Choose your weapon!
-            </div>
+
             <div id="stats">
                 <div class="stat-item">
                     You: <div id="playerWins">0</div>
@@ -34,7 +33,14 @@
                 </div>
             </div>
             <button id="reset">Reset</button>
-        </main>
+        </div>
+        <div id="output">
+            <div id="winner">
+            </div>
+            <div id="result">
+                Choose your weapon!
+            </div>
+        </div>
     </body>
     <script src="game.js"></script>
 </html>
