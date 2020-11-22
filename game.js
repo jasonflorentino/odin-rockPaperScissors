@@ -1,6 +1,12 @@
 // game.js
 // Main rock paper scissors game functions
 
+const winner = document.getElementById("winner");
+const result = document.getElementById("result");
+const choices = Array.from(document.querySelectorAll('.click_me'));
+
+choices.forEach(choice => choice.addEventListener("click", clicked));
+
 function clicked(e) {
   const playerChoice = e.srcElement.textContent;
   const compChoice = computerChoice();
@@ -38,23 +44,42 @@ function playRound(playerSelection, computerSelection) {
 };
 
 function updateScore(winMsg) {
-  if(winMsg == "It's a tie!") {
-    tieScore += 1;
-    tieCounter.textContent = tieScore.toString();
-  } else if(winMsg == "You Win!") {
+  if(winMsg == "You Win!") {
     playerScore += 1;
     playerCounter.textContent = playerScore.toString();
-  } else {
+  } else if(winMsg == "You Lose!") {
     computerScore += 1;
     computerCounter.textContent = computerScore.toString();
+  } else {
+    tieScore += 1;
+    tieCounter.textContent = tieScore.toString();
   }
+  highlightLeader();
 };
 
-const winner = document.getElementById("winner");
-const result = document.getElementById("result");
-const choices = Array.from(document.querySelectorAll('.click_me'));
+const statYou = document.getElementById("stat-you");
+const statComputer = document.getElementById("stat-computer");
+const statTies = document.getElementById("stat-ties");
 
-choices.forEach(choice => choice.addEventListener("click", clicked));
+function highlightLeader() {
+  if(playerScore > computerScore && playerScore > tieScore) {
+    statYou.classList.add("leaderScore")
+    statComputer.classList.remove("leaderScore")
+    statTies.classList.remove("leaderScore")
+  } else if(computerScore > playerScore && computerScore > tieScore) {
+    statComputer.classList.add("leaderScore")
+    statYou.classList.remove("leaderScore")
+    statTies.classList.remove("leaderScore")
+  } else if (tieScore > playerScore && tieScore > computerScore) {
+    statTies.classList.add("leaderScore")
+    statYou.classList.remove("leaderScore")
+    statComputer.classList.remove("leaderScore")
+  } else {
+    statYou.classList.remove("leaderScore")
+    statComputer.classList.remove("leaderScore")
+    statTies.classList.remove("leaderScore")
+  }
+}
 
 let playerScore = 0;
 let computerScore = 0;
@@ -72,4 +97,5 @@ document.getElementById("reset").addEventListener("click", function() {
   computerCounter.textContent = computerScore.toString();
   document.getElementById("winner").textContent = undefined;
   document.getElementById("result").textContent = "Choose your weapon!";
+  highlightLeader()
 })
