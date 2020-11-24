@@ -7,15 +7,48 @@ const choices = Array.from(document.querySelectorAll('.click_me'));
 
 choices.forEach(choice => choice.addEventListener("click", clicked));
 
-function clicked(e) {
-  const playerChoice = e.srcElement.textContent;
-  const compChoice = computerChoice();
-  const winMsg = playRound(playerChoice, compChoice);
+let playerChoice;
 
-  winner.textContent = winMsg;
-  updateScore(winMsg);
-  result.textContent = `You chose ${playerChoice}. Computer chose ${compChoice}.`;
+function clicked(e) {
+  countdown(three);
+  playerChoice = e.srcElement.textContent;
 };
+
+const three = document.getElementById("three");
+const two = document.getElementById("two");
+const one = document.getElementById("one");
+
+function countdown(numberElement) {
+  numberElement.addEventListener('transitionend', keepTransitioning)
+  numberElement.classList.add("isVisible");
+};
+
+function keepTransitioning(e) {
+  if(e.target.innerText.includes("3") &&
+     e.target.classList.value.includes("notVisible")) {
+    countdown(two);
+    e.target.classList.remove("isVisible", "notVisible")
+  } else if(e.target.innerText.includes("2") &&
+            e.target.classList.value.includes("notVisible")) {
+    countdown(one);
+    e.target.classList.remove("isVisible", "notVisible")
+  } else if(e.target.innerText.includes("1") &&
+            e.target.classList.value.includes("notVisible")) {
+      keepPlaying();
+      e.target.classList.remove("isVisible", "notVisible")
+  } else {
+  e.target.classList.add("notVisible");
+  };
+}
+
+function keepPlaying() {
+    const compChoice = computerChoice();
+    const winMsg = playRound(playerChoice, compChoice);
+
+    winner.textContent = winMsg;
+    updateScore(winMsg);
+    result.textContent = `You chose ${playerChoice}. Computer chose ${compChoice}.`;
+}
 
 function computerChoice() {
   let answers = ["Rock", "Paper", "Scissors"];

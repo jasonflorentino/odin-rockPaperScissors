@@ -14,6 +14,7 @@ body {
 }
 
 #controller {
+  z-index: 666;
   position: fixed;
   min-width: 360px;
   right: 25px;
@@ -26,6 +27,7 @@ body {
 }
 
 #output {
+  z-index: 666;
   text-align: center;
   padding-bottom: 30px;
 }
@@ -94,3 +96,47 @@ h2 {
 .leaderScore {
   background-color: rgb(255,255,255,0.7);
 }
+
+#animations {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background-color: rgba(253, 109, 109, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  background-color: rgba(253, 109, 109, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2000%;
+  font-weight: bolder;
+  /* visibility: hidden; */
+  opacity: 0;
+}
+
+.isVisible {
+  /* visibility: visible; */
+  opacity: 1;
+  transition: opacity 100ms linear;
+}
+
+.notVisible {
+  /* visibility: hidden; */
+  opacity: 0;
+  transition: opacity 400ms 100ms linear;
+}
+
+/* .inFlow {
+  display: inline;
+}
+
+.outOfFlow {
+  display: none;
+} */
