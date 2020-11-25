@@ -16,7 +16,7 @@
 * JavaScript
 
 ## Live Link
-[Click here](jasonflorentino.github.io/rockpaperscissors/) to see it in action.
+[Click here](https://jasonflorentino.github.io/rockPaperScissors/) to see it in action.
 
 ## Compatibility
 This is currently only built for Desktop! Viewing on a narrower screen will definitely look a little whack. I've successfully beat the computer a few times on Chrome 86.0.4240.198 and Safari 14.0.
