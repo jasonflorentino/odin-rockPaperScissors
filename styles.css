@@ -58,7 +58,6 @@ h2 {
 .click_me {
   margin: 10px;
   padding: 10px 14px;
-  /* border: 1px solid black; */
   border: none;
   border-radius: 4px;
   background-color: rgb(255,255,255,0.4);
@@ -109,34 +108,58 @@ h2 {
 
 .countdown {
   position: absolute;
+  z-index: 3;
   width: 70%;
-  height: 70%;
-  background-color: rgba(253, 109, 109, 0);
+  height: 70%; 
+  color: #ff3b3b;
+  background-color: rgba(24, 238, 42, 0);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2000%;
   font-weight: bolder;
-  /* visibility: hidden; */
   opacity: 0;
 }
 
 .isVisible {
-  /* visibility: visible; */
   opacity: 1;
   transition: opacity 100ms linear;
 }
 
 .notVisible {
-  /* visibility: hidden; */
   opacity: 0;
   transition: opacity 400ms 100ms linear;
 }
 
-/* .inFlow {
-  display: inline;
+#characters {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.outOfFlow {
-  display: none;
-} */
+#playerSide, #computerSide {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerChar, .computerChar {
+  opacity: 0;
+  position: absolute;
+  font-size: 2000%;
+}
+
+.playerChar {
+  transform: translateX(-10%);
+  transition: opacity 100ms linear, transform 101ms step-end;
+}
+
+.charVisible {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: opacity 100ms linear, transform 200ms ease-out;
+}
