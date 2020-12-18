@@ -28,6 +28,6 @@ This is currently only built for Desktop! Viewing on a narrower screen will defi
 #### Playing A Round
 ![Animated GIF of playing a round](https://raw.githubusercontent.com/jasonflorentino/rockPaperScissors/main/images/playing-a-game.gif)
 
-⭐️ ⭐️ ⭐️
+⭐️ Star if you enjoyed this! Thx!⭐️ 
 
 2020-11-25
